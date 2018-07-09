@@ -24,6 +24,10 @@ RUN rm -Rf  /usr/local/nginx/conf/vhosts/* && rm -Rf /usr/local/nginx/conf/nginx
 ADD conf/nginx.conf /usr/local/nginx/conf/nginx.conf
 ADD conf/nginx-site.conf /usr/local/nginx/conf/vhosts/nginx-site.conf
 
+#copy swoole-loader
+ADD deploy/swoole_loader56.so /usr/local/php56/lib/php/extensions/no-debug-non-zts-20131226/swoole_loader56.so
+ADD deploy/libsodium.so.23 /usr/lib64/libsodium.so.23
+ADD config/swoole_loader.ini /usr/local/php56/etc/php.d/swoole_loader.ini
 
 
 # tweak php-fpm and zend config
