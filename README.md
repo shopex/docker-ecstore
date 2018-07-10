@@ -11,17 +11,27 @@ If you have any improvements please submit a pull request.
 The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-php56/](https://hub.docker.com/r/ecstore/nginx-php56/)
 
 ## Versions
-| Tag | Nginx | PHP | mysql |
-|-----|-------|-----|--------|
-| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | none |
-| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 |
+| Tag | Nginx | PHP | mysql | Dockerfile | 
+|-----|-------|-----|--------|--------| 
+| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | None | [nginx-php56/Dockerfile](nginx-php56/Dockerfile)|
+| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 |[nginx-php56-mysql56/Dockerfile](nginx-php56-mysql56/Dockerfile)|
 
 
 相关默认配置：
 
 web_root:/data/httpd/
 
-### mysql info（nginx-php56-mysql56):
+## Quick Start
+
+```bash
+# 启动不含mysql的容器
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56
+
+# 启动包含mysql的容器
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-mysql56
+```
+
+### mysql info（适用于nginx-php56-mysql56):
 
 To start mysqld at boot time you have to copy
 support-files/mysql.server to the right place for your system
