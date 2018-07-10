@@ -17,11 +17,12 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 | nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 |
 
 
+
 相关默认配置：
 
 web_root:/data/httpd/
 
-### mysql info（nginx-php56-mysql56):
+### mysql info:
 
 To start mysqld at boot time you have to copy
 support-files/mysql.server to the right place for your system
