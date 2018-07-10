@@ -147,7 +147,7 @@ if [[ "$RUN_SCRIPTS" == "1" ]] ; then
 fi
 
 #start mysql services
-mysqld &
+/usr/bin/mysqld_safe &
 
 # Start supervisord and services
 exec /usr/bin/supervisord -n -c /etc/supervisord.conf
