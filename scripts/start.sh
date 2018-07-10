@@ -56,7 +56,7 @@ if [ ! -d "/data/httpd/.git" ]; then
     fi
    fi
    ${GIT_COMMAND} /data/httpd || exit 1
-   chown -Rf www.www /data/httpd
+   chown -Rf nginx.nginx /data/httpd
  fi
 fi
 
@@ -126,13 +126,12 @@ if [ ! -z "$PUID" ]; then
   if [ -z "$PGID" ]; then
     PGID=${PUID}
   fi
-  deluser www
-  addgroup -g ${PGID} www
-  adduser -D -S -h /var/cache/www -s /sbin/nologin -G www -u ${PUID} www
+  deluser nginx
+  addgroup -g ${PGID} nginx
+  adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx -u ${PUID} nginx
 else
   # Always chown webroot for better mounting
-  chown -Rf www.www /data/httpd
-  chown -Rf mysql.mysql /data/mysql
+  chown -Rf nginx.nginx /data/httpd
 fi
 
 # Run custom scripts
@@ -146,6 +145,9 @@ if [[ "$RUN_SCRIPTS" == "1" ]] ; then
     echo "Can't find script directory"
   fi
 fi
+
+#start mysql services
+mysqld &
 
 # Start supervisord and services
 exec /usr/bin/supervisord -n -c /etc/supervisord.conf
