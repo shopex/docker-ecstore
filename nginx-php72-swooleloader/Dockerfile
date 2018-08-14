@@ -11,9 +11,10 @@ RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backu
 
 # 安装软件
 RUN yum clean all &&\
-    yum install epel-release -y && yum makecache &&\  
+    yum install epel-release -y &&\ 
     rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm &&\
+    yum makecache &&\ 
     yum install php72w php72w-common php72w-fpm php72w-bcmath php72w-gd php72w-mbstring php72w-pdo php72w-mysql nginx1w -y &&\
     yum install perl perl-Data-Dumper libaio* libnuma* -y  &&\
     yum clean all && rm -rf /tmp/* && rm -rf /var/tmp/*
