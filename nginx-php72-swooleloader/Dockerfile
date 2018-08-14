@@ -1,8 +1,7 @@
 FROM centos:7.2.1511
 
 # 初始设置
-RUN yum install epel-release -y &&\ 
-    rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm &&\
     yum makecache &&\  
     yum install -y vim tar wget curl bzip2 net-tools lsof sysstat cronie python-setuptools &&\
