@@ -1,8 +1,8 @@
-# 商派ECStore 5.0 docker
+# 商派ECStore/B2B2c docker
 
 ## 说明
 
-这是一个Shopex ECStore B2C 5.0.x版本可用的docker镜像
+这是一个Shopex ECStore B2C/B2B2C 可用的docker官方镜像
 
 ### Git repository
 
@@ -16,11 +16,11 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 
 ## Versions
 
-| Tag | Nginx | PHP | mysql | Dockerfile | 
-|-----|-------|-----|--------|--------| 
-| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | None | [nginx-php56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)|
-| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 |[nginx-php56-mysql56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-mysql56/Dockerfile)|
-
+| Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 
+|-----|-------|-----|--------|--------| --------|-------- |  
+| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | - | - | 1.8.0 | [nginx-php56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)|
+| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 | - | 1.8.0 |[nginx-php56-mysql56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-mysql56/Dockerfile)|
+| nginx-php72-swooleloader   | nginx/1.12.1 | 7.2.8 | - | - | 1.9.0 |[nginx-php72-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)|
 相关默认配置：
 
 - web_root:/data/httpd/
@@ -29,11 +29,15 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 ## Quick Start
 
 ```bash
-# 启动不含mysql的容器
+# 启动不含mysql的容器 php5.6
 sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56
 
-# 启动包含mysql的容器
+# 启动包含mysql的容器 php5.6
 sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-mysql56
+
+# 启动不含mysql的容器 php7.2
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader
+
 ```
 
 ### mysql info（适用于nginx-php56-mysql56)
@@ -71,7 +75,7 @@ Please report any problems at http://bugs.mysql.com/
 
 The latest information about MySQL is available on the web at  http://www.mysql.com
 
-### php默认扩展情况
+### php5.6 默认扩展情况
 
 ```bash
 [PHP Modules]
@@ -122,6 +126,56 @@ xml
 xmlreader
 xmlrpc
 xmlwriter
+zip
+zlib
+
+[Zend Modules]
+
+```
+
+### php7.2默认扩展
+
+```bash
+[PHP Modules]
+bcmath
+bz2
+calendar
+Core
+ctype
+curl
+date
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+gmp
+hash
+iconv
+json
+libxml
+mbstring
+mysqli
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_sqlite
+Phar
+readline
+Reflection
+session
+shmop
+SimpleXML
+sockets
+SPL
+sqlite3
+standard
+swoole_loader
+tokenizer
+xml
 zip
 zlib
 
