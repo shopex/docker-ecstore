@@ -37,9 +37,13 @@ ADD conf/swoole_loader.ini /etc/php.d/swoole_loader.ini
 
 
 # tweak php-fpm and zend config
-RUN sed -i \        
-        -e "s/pm.max_children = 50/pm.max_children = 5/g" \       
-        ${fpm_conf} 
+RUN adduser www &&\
+    sed -i \        
+    -e "s/pm = dynamic/pm = static/g" \    
+    -e "s/pm.max_children = 50/pm.max_children = 5/g" \    
+    -e "s/user = apache/user = www/g" \   
+    -e "s/group = apache/group = www/g" \      
+    ${fpm_conf} 
 
 
 
@@ -76,3 +80,4 @@ RUN chmod 755 /start.sh
 EXPOSE 443 80 22
 
 CMD ["/start.sh"]
+
