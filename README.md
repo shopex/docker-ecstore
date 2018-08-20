@@ -16,11 +16,12 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 
 ## Versions
 
-| Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 
-|-----|-------|-----|--------|--------| --------|-------- |  
-| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | - | - | 1.8.0 | [nginx-php56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)|
-| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 | - | 1.8.0 |[nginx-php56-mysql56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-mysql56/Dockerfile)|
-| nginx-php72-swooleloader   | nginx/1.12.1 | 7.2.8 | - | - | 1.9.0 |[nginx-php72-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)|
+| Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
+|-----|-------|-----|--------|--------| --------|-------- |  ----- |
+| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | - | - | 1.9.0 | [nginx-php56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)| ECstore B2C 5.0.x |
+| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 | - | 1.9.0 |[nginx-php56-mysql56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-mysql56/Dockerfile)| ECstore B2C 5.0.x |
+| nginx-php72-swooleloader   | nginx/1.12.1 | 7.2.8 | - | - | 1.9.0 |[nginx-php72-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)| B2B2C 5.0.x |
+
 相关默认配置：
 
 - web_root:/data/httpd/
