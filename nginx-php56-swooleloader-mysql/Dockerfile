@@ -1,4 +1,4 @@
-FROM ecstore/nginx-php56:nginx-php56
+FROM ecstore/nginx-php56:nginx-php56-swooleloader
 
 
 # 安装mysql 

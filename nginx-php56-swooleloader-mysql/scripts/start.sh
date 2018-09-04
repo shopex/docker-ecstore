@@ -147,5 +147,8 @@ fi
 #  fi
 #fi
 
+#start mysql services
+/usr/bin/mysqld_safe &
+
 # Start supervisord and services
 exec /usr/bin/supervisord -n -c /etc/supervisord.conf
