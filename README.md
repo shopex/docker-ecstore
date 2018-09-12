@@ -4,6 +4,8 @@
 
 这是一个Shopex ECStore B2C/B2B2C 可用的docker官方镜像
 
+欢迎在github上提交PR来改进我们的镜像
+
 ### Git repository
 
 The source files for this project can be found here: [https://github.com/summergeorge/nginx-php56-docker](https://github.com/summergeorge/nginx-php56-docker)
@@ -14,13 +16,21 @@ If you have any improvements please submit a pull request.
 
 The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-php56/](https://hub.docker.com/r/ecstore/nginx-php56/)
 
+## Supported tags and respective Dockerfile links
+
+- [`nginx-php56`,`nginx-php56-swooleloader`(*nginx-php56-swooleloader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)
+- [`nginx-php56-mysql56`,`nginx-php56-swooleloader-mysql`(*nginx-php56-swooleloader-mysql/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)
+- [`nginx-php56-zendGuardLoader`(*nginx-php56-zendGuardLoader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/1)
+- [`nginx-php72-swooleloader`(*nginx-php72-swooleloader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/1)
+
 ## Versions
 
 | Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
-| nginx-php56 | openresty/1.11.2.4 | 5.6.31 | - | - | 1.9.0 | [nginx-php56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)| ECstore B2C 5.0.x |
-| nginx-php56-mysql56   | openresty/1.11.2.4 | 5.6.31 | 5.6.28 | - | 1.9.0 |[nginx-php56-mysql56/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-mysql56/Dockerfile)| ECstore B2C 5.0.x |
-| nginx-php72-swooleloader   | nginx/1.12.1 | 7.2.8 | - | - | 1.9.0 |[nginx-php72-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)| B2B2C 5.0.x |
+| nginx-php56-swooleloader | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 | [nginx-php56-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56/Dockerfile)| ECstore B2C 5.0.x |
+| nginx-php56-swooleloader-mysql | nginx/1.12.1 |  5.6.37 | 5.6.28 | - | 1.9.0 |[nginx-php56-swooleloader-mysql/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-mysql56/Dockerfile)| ECstore B2C 5.0.x |
+| nginx-php56-zendGuardLoader | nginx/1.12.1 |  5.6.37 | - | enabled | - |[nginx-php56-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)|ECstore 2.3~3.0(php56) B2B2C 3.0~4.0(php56) |
+| nginx-php72-swooleloader | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 |[nginx-php72-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)| B2B2C 5.0 |
 
 相关默认配置：
 
@@ -31,10 +41,10 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 
 ```bash
 # 启动不含mysql的容器 php5.6
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-swooleloader
 
 # 启动包含mysql的容器 php5.6
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-mysql56
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-swooleloader-mysql
 
 # 启动不含mysql的容器 php7.2
 sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader
@@ -76,29 +86,31 @@ Please report any problems at http://bugs.mysql.com/
 
 The latest information about MySQL is available on the web at  http://www.mysql.com
 
-### php5.6 默认扩展情况
+### php5.6 默认扩展情况(swooleLoader)
 
 ```bash
 [PHP Modules]
 bcmath
+bz2
+calendar
 Core
 ctype
 curl
 date
-dom
 ereg
+exif
 fileinfo
 filter
 ftp
 gd
 gettext
+gmp
 hash
 iconv
 json
 libxml
 mbstring
 mcrypt
-memcache
 mhash
 mysql
 mysqli
@@ -110,27 +122,78 @@ PDO
 pdo_mysql
 pdo_sqlite
 Phar
-posix
+readline
 Reflection
 session
 shmop
 SimpleXML
-soap
 sockets
 SPL
 sqlite3
 standard
 swoole_loader
-sysvsem
 tokenizer
 xml
-xmlreader
-xmlrpc
-xmlwriter
 zip
 zlib
 
 [Zend Modules]
+
+```
+
+### php5.6 默认扩展情况(zendGuardLoader)
+
+```bash
+[PHP Modules]
+bcmath
+bz2
+calendar
+Core
+ctype
+curl
+date
+ereg
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+gmp
+hash
+iconv
+json
+libxml
+mbstring
+mcrypt
+mhash
+mysql
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_sqlite
+Phar
+readline
+Reflection
+session
+shmop
+SimpleXML
+sockets
+SPL
+sqlite3
+standard
+tokenizer
+xml
+Zend Guard Loader
+zip
+zlib
+
+[Zend Modules]
+Zend Guard Loader
 
 ```
 
