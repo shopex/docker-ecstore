@@ -6,7 +6,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm &&\
     yum makecache &&\  
     yum install -y vim tar wget curl bzip2 net-tools lsof sysstat cronie python-setuptools &&\
-    yum install php56w php56w-cli php56w-common php56w-fpm php56w-bcmath php56w-gd php56w-mbstring php56w-pdo php56w-mysqlnd php56w-mcrypt nginx1w -y &&\
+    yum install php56w php56w-cli php56w-common php56w-fpm php56w-bcmath php56w-gd php56w-mbstring php56w-pdo php56w-mysqlnd php56w-mcrypt php56w-pecl-redis nginx1w -y &&\
     yum install perl perl-Data-Dumper libaio* libnuma* -y  &&\
     yum clean all && rm -rf /tmp/* && rm -rf /var/tmp/* &&\    
     easy_install supervisor &&\
