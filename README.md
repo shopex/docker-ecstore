@@ -22,6 +22,7 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 - [`nginx-php56-mysql56`,`nginx-php56-swooleloader-mysql`(*nginx-php56-swooleloader-mysql/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader-mysql/Dockerfile)
 - [`nginx-php56-zendGuardLoader`(*nginx-php56-zendGuardLoader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-zendGuardLoader/Dockerfile)
 - [`nginx-php72-swooleloader`(*nginx-php72-swooleloader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)
+- [`nginx-php72-swooleloader-mysql`(*nginx-php72-swooleloader-mysql/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader-mysql/Dockerfile)
 
 ## Versions
 
