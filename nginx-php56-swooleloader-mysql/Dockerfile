@@ -3,7 +3,8 @@ FROM ecstore/nginx-php56:nginx-php56-swooleloader
 
 # 安装mysql 
 RUN curl -o /tmp/MySQL-server-5.6.28-1.el7.x86_64.rpm  https://cdn.mysql.com/archives/mysql-5.6/MySQL-server-5.6.28-1.el7.x86_64.rpm  &&\
-    rpm -ivh /tmp/MySQL-server-5.6.28-1.el7.x86_64.rpm &&\    
+    rpm -ivh /tmp/MySQL-server-5.6.28-1.el7.x86_64.rpm &&\ 
+    mkdir -p /data/mysql && chown -R mysql.mysql /data/mysql &&\  
     mysql_install_db  --no-defaults --datadir=/data/mysql --user=mysql &&\
     rm -Rf /etc/my.cnf &&\    
     rm -rf /tmp/* && rm -rf /var/tmp/* 
