@@ -30,7 +30,8 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-
 | nginx-php56-swooleloader | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 | [nginx-php56-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader/Dockerfile)| ECstore B2C 5.0.x |
 | nginx-php56-swooleloader-mysql | nginx/1.12.1 |  5.6.37 | 5.6.28 | - | 1.9.0 |[nginx-php56-swooleloader-mysql/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader-mysql/Dockerfile)| ECstore B2C 5.0.x |
 | nginx-php56-zendGuardLoader | nginx/1.12.1 |  5.6.37 | - | enabled | - |[nginx-php56-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-zendGuardLoader/Dockerfile)|ECstore 2.3-3.0(php56) B2B2C 3.0-4.0(php56) |
-| nginx-php72-swooleloader | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 |[nginx-php72-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)| B2B2C 5.0 |
+| nginx-php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[nginx-php72-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)| B2B2C 5.0 |
+| nginx-php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 1.9.0 |[nginx-php72-zendGuardLoader-mysql/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader-mysql/Dockerfile)| B2B2C 5.0 |
 
 相关默认配置：
 
@@ -47,7 +48,11 @@ sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php5
 sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-swooleloader-mysql
 
 # 启动不含mysql的容器 php7.2
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader
+sudo docker run -d -p 8080:80 -v /path-to-b2b2c:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader
+
+
+# 启动包含mysql的容器 php7.2
+sudo docker run -d -p 8080:80 -v /path-to-b2b2c:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader-mysql
 
 ```
 
@@ -97,6 +102,7 @@ Core
 ctype
 curl
 date
+dom
 ereg
 exif
 fileinfo
@@ -107,6 +113,7 @@ gettext
 gmp
 hash
 iconv
+igbinary
 json
 libxml
 mbstring
@@ -122,7 +129,9 @@ PDO
 pdo_mysql
 pdo_sqlite
 Phar
+posix
 readline
+redis
 Reflection
 session
 shmop
@@ -132,8 +141,15 @@ SPL
 sqlite3
 standard
 swoole_loader
+sysvmsg
+sysvsem
+sysvshm
 tokenizer
+wddx
 xml
+xmlreader
+xmlwriter
+xsl
 zip
 zlib
 
