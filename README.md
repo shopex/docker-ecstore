@@ -29,8 +29,8 @@ The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore
 
 | Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
-| php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
-| php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
+| php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
+| php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
 
 
 ### 下面是 swooleloader 1.9.0版本，2018年3月至2018年11月 期间发布的 ecstore5.0.1版本适用此镜像
@@ -43,7 +43,7 @@ The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
 | php56-swooleloader-1.9.0 | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 | [php56-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php56-swooleloader/Dockerfile)| ECstore B2C 5.0.1|
 | php56-swooleloader-1.9.0-mysql | nginx/1.12.1 |  5.6.37 | 5.6.28 | - | 1.9.0 |[php56-swooleloader-mysql/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php56-swooleloader-mysql/Dockerfile)| ECstore B2C 5.0.1 |
-| php72-swooleloader-1.9.0 | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php72-swooleloader/Dockerfile)| 升级为 swoole 2.0，该版本已弃用 |
+| php72-swooleloader-1.9.0 | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php72-swooleloader/Dockerfile)| 升级为 swoole 2.0，该版本已弃用 |
 
 
 相关默认配置：
@@ -62,7 +62,7 @@ vim /etc/php.d/swoole_loader.ini
 ```bash
 [swoole]
 extension = swoole_loader72.so
-# 加入授权证书文件，更改后，需要重启 php-fpm 才能生效
+;加入授权证书文件，更改后，需要重启 php-fpm 才能生效
 swoole_license_files=/data/httpd/config/developer.zl
 ```
 
