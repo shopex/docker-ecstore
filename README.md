@@ -50,7 +50,7 @@ The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore
 
 - `web_root`: /data/httpd/
 - `mysql_data`: /data/mysql/
-- `php.ini`: /etc/php.ini
+- `php.ini`:/etc/php.ini
 - `php extension_dir`: /etc/php.d/
 - `nginx config`: /etc/nginx/
 - `启动脚本`: /start.sh
