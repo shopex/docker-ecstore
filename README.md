@@ -2,58 +2,61 @@
 
 ## 说明
 
-这是一个Shopex ECStore B2C/B2B2C 可用的docker官方镜像
+这是一个Shopex ECStore B2C/B2B2C docker官方镜像
+
+*注意*：镜像中只有php 运行环境，不含产品代码包。如需代码，请联系商派（shopex）购买商业授权。www.shopex.cn
 
 欢迎在github上提交PR来改进我们的镜像
 
 ### Git repository
 
-The source files for this project can be found here: [https://github.com/summergeorge/nginx-php56-docker](https://github.com/summergeorge/nginx-php56-docker)
+The source files for this project can be found here: [https://github.com/shopex/docker-ecstore](https://github.com/shopex/docker-ecstore)
 
 If you have any improvements please submit a pull request.
 
 ### Docker hub repository
 
-The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/nginx-php56/](https://hub.docker.com/r/ecstore/nginx-php56/)
+The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore/](https://hub.docker.com/r/shopex/ecstore/)
 
 ## Supported tags and respective Dockerfile links
 
-- [`nginx-php56`,`nginx-php56-swooleloader`(*nginx-php56-swooleloader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader/Dockerfile)
-- [`nginx-php56-mysql56`,`nginx-php56-swooleloader-mysql`(*nginx-php56-swooleloader-mysql/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader-mysql/Dockerfile)
-- [`nginx-php56-zendGuardLoader`(*nginx-php56-zendGuardLoader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-zendGuardLoader/Dockerfile)
-- [`nginx-php72-swooleloader`(*nginx-php72-swooleloader/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)
-- [`nginx-php72-swooleloader-mysql`(*nginx-php72-swooleloader-mysql/Dockerfile*)](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader-mysql/Dockerfile)
 
-## Versions
+### 下面是 swooleloader 1.9.0版本，2018年3月至2018年11月 期间发布的 ecstore5.0.1版本适用此镜像
+- [`php56-swooleloader-1.9.0`(*php56-swooleloader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php56-swooleloader/Dockerfile)
+- [`php56-swooleloader-1.9.0-mysql`(*php56-swooleloader-mysql/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php56-swooleloader-mysql/Dockerfile)
+- [`php72-swooleloader-1.9.0`(*php72-swooleloader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php72-swooleloader/Dockerfile)
+- [`php72-swooleloader-1.9.0-mysql`(*php72-swooleloader-mysql/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php72-swooleloader-mysql/Dockerfile)
+
+## Versions （old）
 
 | Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
-| nginx-php56-swooleloader | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 | [nginx-php56-swooleloader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader/Dockerfile)| ECstore B2C 5.0.x |
-| nginx-php56-swooleloader-mysql | nginx/1.12.1 |  5.6.37 | 5.6.28 | - | 1.9.0 |[nginx-php56-swooleloader-mysql/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-swooleloader-mysql/Dockerfile)| ECstore B2C 5.0.x |
-| nginx-php56-zendGuardLoader | nginx/1.12.1 |  5.6.37 | - | enabled | - |[nginx-php56-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php56-zendGuardLoader/Dockerfile)|ECstore 2.3-3.0(php56) B2B2C 3.0-4.0(php56) |
-| nginx-php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[nginx-php72-zendGuardLoader/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader/Dockerfile)| B2B2C 5.0 |
-| nginx-php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 1.9.0 |[nginx-php72-zendGuardLoader-mysql/Dockerfile](https://github.com/summergeorge/nginx-php56-docker/blob/master/nginx-php72-swooleloader-mysql/Dockerfile)| B2B2C 5.0 |
+| php56-swooleloader-1.9.0 | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 | [php56-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php56-swooleloader/Dockerfile)| ECstore B2C 5.0.1|
+| php56-swooleloader-1.9.0-mysql | nginx/1.12.1 |  5.6.37 | 5.6.28 | - | 1.9.0 |[nginx-php56-swooleloader-mysql/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php56-swooleloader-mysql/Dockerfile)| ECstore B2C 5.0.1 |
+| php72-swooleloader-1.9.0 | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swoole-1.9.0/php72-swooleloader/Dockerfile)| 升级为 swoole 2.0，该版本已弃用 |
+
 
 相关默认配置：
 
 - web_root:/data/httpd/
 - mysql_data:/data/mysql/
+- php.ini:/etc/php.ini
+- php extension_dir:/etc/php.d/
+- nginx config:/etc/nginx/
+- 启动脚本:/start.sh
+- 重启 php-fpm: supervisorctl reload 或 supervisorctl restart all
 
 ## Quick Start
 
 ```bash
 # 启动不含mysql的容器 php5.6
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-swooleloader
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader-1.9.0
 
 # 启动包含mysql的容器 php5.6
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/nginx-php56:nginx-php56-swooleloader-mysql
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader-1.9.0-mysql
 
 # 启动不含mysql的容器 php7.2
-sudo docker run -d -p 8080:80 -v /path-to-b2b2c:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader
-
-
-# 启动包含mysql的容器 php7.2
-sudo docker run -d -p 8080:80 -v /path-to-b2b2c:/data/httpd ecstore/nginx-php56:nginx-php72-swooleloader-mysql
+sudo docker run -d -p 8080:80 -v /path-to-b2b2c:/data/httpd shopex/ecstore:php72-swooleloader-1.9.0
 
 ```
 

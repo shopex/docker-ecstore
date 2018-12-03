@@ -1,4 +1,4 @@
-FROM ecstore/nginx-php56:nginx-php72-swooleloader
+FROM shopex/ecstore:php72-swooleloader-1.9.0
 
 
 # 安装mysql 
