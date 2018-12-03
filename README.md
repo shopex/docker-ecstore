@@ -21,7 +21,7 @@ The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore
 ## Supported tags and respective Dockerfile links
 
 
-### 最新版本（官网推荐），适用于 ecstore 5.0 和 b2b2c 5.0版本
+### 最新版本（官方推荐），适用于 ecstore 5.0 和 b2b2c 5.0版本
 
 - [`php72-swooleloader`(*php72-swooleloader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)
 - [`php72-swooleloader-mysql`(*php72-swooleloader-mysql/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader-mysql/Dockerfile)
