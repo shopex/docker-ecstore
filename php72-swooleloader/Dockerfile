@@ -32,7 +32,7 @@ ADD conf/nginx-site.conf /etc/nginx/conf.d/nginx-site.conf
 
 #copy swoole-loader
 ADD deploy/swoole_loader72.so /usr/lib64/php/modules/swoole_loader72.so
-ADD deploy/libsodium.so.23 /usr/lib64/libsodium.so.23
+# ADD deploy/libsodium.so.23 /usr/lib64/libsodium.so.23
 ADD conf/swoole_loader.ini /etc/php.d/swoole_loader.ini
 
 
