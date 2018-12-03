@@ -48,14 +48,14 @@ The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore
 
 相关默认配置：
 
-- web_root: /data/httpd/
-- mysql_data: /data/mysql/
-- php.ini: /etc/php.ini
-- php extension_dir: /etc/php.d/
-- nginx config: /etc/nginx/
-- 启动脚本: /start.sh
-- 重启 php-fpm: supervisorctl reload 或 supervisorctl restart all
-- swooleloader 配置: /etc/php.d/swoole_loader.ini 
+- `web_root`: /data/httpd/
+- `mysql_data`: /data/mysql/
+- `php.ini`: /etc/php.ini
+- `php extension_dir`: /etc/php.d/
+- `nginx config`: /etc/nginx/
+- `启动脚本`: /start.sh
+- `重启 php-fpm`: supervisorctl reload 或 supervisorctl restart all
+- `swooleloader 配置`: /etc/php.d/swoole_loader.ini 
 
 ## swooleloader 证书配置方法：
 vim /etc/php.d/swoole_loader.ini
