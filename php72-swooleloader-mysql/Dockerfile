@@ -1,4 +1,4 @@
-FROM ecstore/ecstore:php72-swooleloader
+FROM ecstore/docker-ecstore:php72-swooleloader
 
 
 # 安装mysql 
