@@ -1,4 +1,4 @@
-FROM shopex/ecstore:php56-swooleloader-1.9.0
+FROM ecstore/ecstore:php56-swooleloader-1.9.0
 
 
 # 安装mysql 

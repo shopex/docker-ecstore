@@ -16,7 +16,7 @@ If you have any improvements please submit a pull request.
 
 ### Docker hub repository
 
-The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore/](https://hub.docker.com/r/shopex/ecstore/)
+The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/ecstore/](https://hub.docker.com/r/ecstore/ecstore/)
 
 ## Supported tags and respective Dockerfile links
 
@@ -72,13 +72,13 @@ swoole_license_files=/data/httpd/config/developer.zl
 
 
 # 启动不含mysql的容器 php7.2-swooleloader 2.0.2
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/ecstore:php56-swooleloader
 
 # 启动包含mysql的容器 php7.2-swooleloader 2.0.2
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader-mysql
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/ecstore:php56-swooleloader-mysql
 
 # 启动不含mysql的容器 php5.6-swooleloader1.9.0
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader-1.9.0
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/ecstore:php56-swooleloader-1.9.0
 
 ```
 
