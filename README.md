@@ -30,7 +30,10 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/docker
 | Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
 | php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
-| php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
+| php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 2.0.2 |[php72-swooleloader-mysql/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader-mysqler/Dockerfile)| b2b2c 5.0 |
+
+### php5.6 - zendgurard
+- [`php56-zend`(*php56-zendGuardLoader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php56-zendGuardLoader/Dockerfile)
 
 
 ### 下面是 swooleloader 1.9.0版本，2018年3月至2018年11月 期间发布的 ecstore5.0.1版本适用此镜像
