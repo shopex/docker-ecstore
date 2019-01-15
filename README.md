@@ -23,6 +23,8 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/docker
 
 ### 最新版本（官方推荐），适用于 ecstore 5.0 和 b2b2c 5.0版本
 
+*说明：* docker 中默认没有安装 redis server，请自行搭建 redis server.
+
 - [`php72-swooleloader`(*php72-swooleloader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)
 - [`php72-swooleloader-mysql`(*php72-swooleloader-mysql/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader-mysql/Dockerfile)
 
@@ -69,16 +71,16 @@ extension = swoole_loader72.so
 swoole_license_files=/data/httpd/config/developer.zl
 ```
 
-## Quick Start
+## Quick Start(适用于 B2B2C php7.2版本，其它版本请自行修改tag)
 
 ```bash
 
 
 # 启动不含mysql的容器 php7.2-swooleloader 2.0.2
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php56-swooleloader
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php72-swooleloader
 
 # 启动包含mysql的容器 php7.2-swooleloader 2.0.2
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php56-swooleloader-mysql
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php72-swooleloader-mysql
 
 # 启动不含mysql的容器 php5.6-swooleloader1.9.0
 sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php56-swooleloader-1.9.0
