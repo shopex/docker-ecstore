@@ -33,6 +33,7 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/docker
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
 | php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
 | php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 2.0.2 |[php72-swooleloader-mysql/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader-mysqler/Dockerfile)| b2b2c 5.0 |
+| php56-swooleloader-2.0.2 | nginx/1.12.1 |  5.6.40 | - | - | 2.0.2 |[php56-swooleloader-2.0.2/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
 
 ### php5.6 - zendgurard
 - [`php56-zend`(*php56-zendGuardLoader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php56-zendGuardLoader/Dockerfile)
