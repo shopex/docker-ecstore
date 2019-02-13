@@ -1,4 +1,5 @@
 FROM centos:7.2.1511
+# tags: php72-swooleloader-1.9.0
 
 # 初始设置
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\

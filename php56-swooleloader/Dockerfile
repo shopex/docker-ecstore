@@ -1,5 +1,5 @@
 FROM centos:7.2.1511
-
+# tags: php56-swooleloader-1.9.0
 
 # 初始设置 php56
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
