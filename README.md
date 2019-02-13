@@ -16,9 +16,27 @@ If you have any improvements please submit a pull request.
 
 ### Docker hub repository
 
-The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore/](https://hub.docker.com/r/shopex/ecstore/)
+The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/docker-ecstore/](https://hub.docker.com/r/ecstore/docker-ecstore/)
 
 ## Supported tags and respective Dockerfile links
+
+
+### 最新版本（官方推荐），适用于 ecstore 5.0 和 b2b2c 5.0版本
+
+*说明：* docker 中默认没有安装 redis server，请自行搭建 redis server.
+
+- [`php72-swooleloader`(*php72-swooleloader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)
+- [`php72-swooleloader-mysql`(*php72-swooleloader-mysql/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader-mysql/Dockerfile)
+
+
+| Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
+|-----|-------|-----|--------|--------| --------|-------- |  ----- |
+| php72-swooleloader | nginx/1.12.1 |  7.2.11 | - | - | 2.0.2 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader/Dockerfile)| b2b2c 5.0 |
+| php72-swooleloader-mysql | nginx/1.12.1 |  7.2.11 | 5.6.28 | - | 2.0.2 |[php72-swooleloader-mysql/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php72-swooleloader-mysqler/Dockerfile)| b2b2c 5.0 |
+| php56-swooleloader-2.0.2 | nginx/1.12.1 |  5.6.40 | - | - | 2.0.2 |[php56-swooleloader-2.0.2/Dockerfile](https://github.com/shopex/docker-ecstore/blob/master/php56-swooleloader-2.0.2/Dockerfile)| >= ecstore 5.0.2(php5.6)|
+
+### php5.6 - zendgurard
+- [`php56-zend`(*php56-zendGuardLoader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/master/php56-zendGuardLoader/Dockerfile)
 
 
 ### 下面是 swooleloader 1.9.0版本，2018年3月至2018年11月 期间发布的 ecstore5.0.1版本适用此镜像
@@ -27,36 +45,46 @@ The Docker hub build can be found here: [https://hub.docker.com/r/shopex/ecstore
 - [`php72-swooleloader-1.9.0`(*php72-swooleloader/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php72-swooleloader/Dockerfile)
 - [`php72-swooleloader-1.9.0-mysql`(*php72-swooleloader-mysql/Dockerfile*)](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php72-swooleloader-mysql/Dockerfile)
 
-## Versions （old）
-
 | Tag | Nginx | PHP | mysql | ZendGuard Loader | Swoole Loader  | Dockerfile | 适用产品版本 |
 |-----|-------|-----|--------|--------| --------|-------- |  ----- |
 | php56-swooleloader-1.9.0 | nginx/1.12.1 |  5.6.37 | - | - | 1.9.0 | [php56-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php56-swooleloader/Dockerfile)| ECstore B2C 5.0.1|
 | php56-swooleloader-1.9.0-mysql | nginx/1.12.1 |  5.6.37 | 5.6.28 | - | 1.9.0 |[php56-swooleloader-mysql/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php56-swooleloader-mysql/Dockerfile)| ECstore B2C 5.0.1 |
-| php72-swooleloader-1.9.0 | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php72-swooleloader/Dockerfile)| 升级为 swoole 2.0，该版本已弃用 |
+| php72-swooleloader-1.9.0 | nginx/1.12.1 |  7.2.11 | - | - | 1.9.0 |[php72-swooleloader/Dockerfile](https://github.com/shopex/docker-ecstore/blob/swooleloader-1.9.0/php72-swooleloader/Dockerfile)| 升级为 swoole 2.0，该版本已弃用 |
 
 
 相关默认配置：
 
-- web_root: /data/httpd/
-- mysql_data: /data/mysql/
-- php.ini: /etc/php.ini
-- php extension_dir: /etc/php.d/
-- nginx config: /etc/nginx/
-- 启动脚本: /start.sh
-- 重启 php-fpm: supervisorctl reload 或 supervisorctl restart all
+- `web_root`: /data/httpd/
+- `mysql_data`: /data/mysql/
+- `php.ini`:/etc/php.ini
+- `php-fpm 扩展配置`: /etc/php.d/
+- `nginx config`: /etc/nginx/
+- `启动脚本`: /start.sh
+- `重启 php-fpm`: supervisorctl reload 或 supervisorctl restart all
+- `swooleloader 配置`: /etc/php.d/swoole_loader.ini 
 
-## Quick Start
+## swooleloader 证书配置方法：
+vim /etc/php.d/swoole_loader.ini
+```bash
+[swoole]
+extension = swoole_loader72.so
+;加入授权证书文件，更改后，需要重启 php-fpm 才能生效
+swoole_license_files=/data/httpd/config/developer.zl
+```
+
+## Quick Start(适用于 B2B2C php7.2版本，其它版本请自行修改tag)
 
 ```bash
-# 启动不含mysql的容器 php5.6
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader-1.9.0
 
-# 启动包含mysql的容器 php5.6
-sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd shopex/ecstore:php56-swooleloader-1.9.0-mysql
 
-# 启动不含mysql的容器 php7.2
-sudo docker run -d -p 8080:80 -v /path-to-b2b2c:/data/httpd shopex/ecstore:php72-swooleloader-1.9.0
+# 启动不含mysql的容器 php7.2-swooleloader 2.0.2
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php72-swooleloader
+
+# 启动包含mysql的容器 php7.2-swooleloader 2.0.2
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php72-swooleloader-mysql
+
+# 启动不含mysql的容器 php5.6-swooleloader1.9.0
+sudo docker run -d -p 8080:80 -v /path-to-ecstore:/data/httpd ecstore/docker-ecstore:php56-swooleloader-1.9.0
 
 ```
 
@@ -241,6 +269,7 @@ json
 libxml
 mbstring
 mysqli
+mysqlnd
 openssl
 pcntl
 pcre
