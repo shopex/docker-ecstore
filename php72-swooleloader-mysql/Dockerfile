@@ -1,4 +1,4 @@
-FROM shopex/docker-ecstore:php72-swooleloader-1.9.0
+FROM ecstore/docker-ecstore:php72-swooleloader-1.9.0
 
 
 # 安装mysql 
