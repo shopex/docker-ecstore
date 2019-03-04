@@ -7,6 +7,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
     yum install -y vim tar wget curl bzip2 net-tools lsof sysstat cronie python-setuptools &&\
     yum install php72w php72w-cli php72w-common php72w-fpm php72w-bcmath php72w-gd php72w-mbstring php72w-pdo php72w-mysqlnd php72w-mcrypt nginx1w -y &&\
     yum install perl perl-Data-Dumper libaio* libnuma* -y  &&\
+    yum install redis -y &&\
     yum clean all && rm -rf /tmp/* && rm -rf /var/tmp/* &&\    
     easy_install supervisor &&\
     cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

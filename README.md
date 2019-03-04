@@ -63,7 +63,7 @@ The Docker hub build can be found here: [https://hub.docker.com/r/ecstore/docker
 - `重启 php-fpm`: supervisorctl reload 或 supervisorctl restart all
 - `swooleloader 配置`: /etc/php.d/swoole_loader.ini 
 
-## swooleloader 证书配置方法：
+## swooleloader 证书配置方法(b2b2c v5.0和 ecstore v5.0请注意检查此配置下）：
 vim /etc/php.d/swoole_loader.ini
 ```bash
 [swoole]
