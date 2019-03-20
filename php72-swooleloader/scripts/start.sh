@@ -132,6 +132,7 @@ if [ ! -z "$PUID" ]; then
 else
   # Always chown webroot for better mounting
   chown -Rf www.www /data/httpd
+  chown -Rf www.www /var/lib/nginx
   chown -Rf mysql.mysql /data/mysql
 fi
 
