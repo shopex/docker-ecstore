@@ -15,15 +15,15 @@ services:
     networks:
       - bbc
 
- redis:
-   image: redis
-   hostname: redis
-   ports:
-     - "8379:6379"
-   volumes:
-     - ./storage/redis:/data
-   networks:
-     - bbc
+  redis:
+    image: redis
+    hostname: redis
+    ports:
+      - "8379:6379"
+    volumes:
+      - ./storage/redis:/data
+    networks:
+      - bbc
 
   mysql:
     image: mysql:5.6
