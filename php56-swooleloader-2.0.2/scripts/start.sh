@@ -17,9 +17,9 @@
 
 # Set custom webroot
 if [ ! -z "$WEBROOT" ]; then
- sed -i "s#root /data/httpd;#root ${WEBROOT};#g" /etc/nginx/sites-available/default.conf
+ sed -i "s#root /data/httpd/public;#root ${WEBROOT};#g" /etc/nginx/sites-available/default.conf
 else
- webroot=/data/httpd
+ webroot=/data/httpd/public
 fi
 
 # Setup git variables
@@ -132,6 +132,7 @@ if [ ! -z "$PUID" ]; then
 else
   # Always chown webroot for better mounting
   chown -Rf www.www /data/httpd
+  chown -Rf www.www /var/lib/nginx
   chown -Rf mysql.mysql /data/mysql
 fi
 
