@@ -10,6 +10,7 @@ services:
     links:
       - mysql
       - redis
+      # - ftp
     environment:
       - WEBROOT=/data/httpd/public
     networks:
@@ -47,6 +48,22 @@ services:
       - PMA_HOST=mysql
     networks:
       - bbc
+
+#   ftp:
+#     image: bogem/ftp
+#     hostname: ftp
+#     environment:
+#       - FTP_USER=ftp
+#       - FTP_PASS=ftp
+#       - PASV_ADDRESS=0.0.0.0
+#     volumes:
+#       - ./storage/ftp:/home/vsftpd
+#     ports:
+#       - "20:20"
+#       - "21:21"
+# #      - "47400-47470:47400-47470"
+#     networks:
+#        - bbc
 
 networks:
   bbc:
