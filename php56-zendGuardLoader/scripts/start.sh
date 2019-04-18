@@ -22,6 +22,13 @@ else
  webroot=/data/httpd
 fi
 
+# Set custom license_path
+if [ ! -z "$LICENSE_PATH" ]; then
+ sed -i "s#zend_loader.license_path=/data/httpd/public/config/#zend_loader.license_path=${WEBROOT}#g" /etc/php.d/Zend.ini
+else
+ license_path=/data/httpd/public/config/
+fi
+
 # Setup git variables
 #if [ ! -z "$GIT_EMAIL" ]; then
 # git config --global user.email "$GIT_EMAIL"

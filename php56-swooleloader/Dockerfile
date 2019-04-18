@@ -23,6 +23,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 #    yum clean all && rm -rf /tmp/* && rm -rf /var/tmp/*
 
 ENV fpm_conf /etc/php-fpm.d/www.conf
+ENV php_ini /etc/php.ini
 
 #copy nginx-site
 #RUN rm -Rf  /usr/local/nginx/conf/vhosts/* && rm -Rf /usr/local/nginx/conf/nginx.conf
@@ -44,8 +45,11 @@ RUN adduser www &&\
     -e "s/pm.max_children = 50/pm.max_children = 5/g" \    
     -e "s/user = apache/user = www/g" \   
     -e "s/group = apache/group = www/g" \      
-    ${fpm_conf} 
-
+    ${fpm_conf}  &&\
+    sed -i \
+    -e "s/post_max_size = 8M/post_max_size = 50M/g" \    
+    -e "s/upload_max_filesize = 2M/upload_max_filesize = 50M/g" \  
+    ${php_ini}
 
 
 
@@ -63,7 +67,7 @@ ADD conf/supervisord.conf /etc/supervisord.conf
 # Add Scripts
 RUN rm -Rf /start.sh
 ADD scripts/start.sh /start.sh
-RUN chmod 755 /start.sh
+RUN chmod 755 /start.sh && chown -Rf www.www /var/lib/nginx
 
 # 安装mysql（选填）
 #RUN yum clean all &&\    

@@ -22,6 +22,13 @@ else
  webroot=/data/httpd/public
 fi
 
+# Set custom license_path
+if [ ! -z "$LICENSE_PATH" ]; then
+ sed -i "s#swoole_license_files=/data/httpd/config/developer.zl#swoole_license_files=${WEBROOT}#g" /etc/php.d/swoole_loader.ini
+else
+ license_path=/data/httpd/config/developer.zl
+fi
+
 # Setup git variables
 #if [ ! -z "$GIT_EMAIL" ]; then
 # git config --global user.email "$GIT_EMAIL"
