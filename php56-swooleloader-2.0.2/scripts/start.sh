@@ -17,7 +17,7 @@
 
 # Set custom webroot
 if [ ! -z "$WEBROOT" ]; then
- sed -i "s#root /data/httpd/public;#root ${WEBROOT};#g" /etc/nginx/sites-available/default.conf
+ sed -i "s#root /data/httpd/public;#root ${WEBROOT};#g" /etc/nginx/conf.d/nginx-site.conf
 else
  webroot=/data/httpd/public
 fi

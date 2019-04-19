@@ -2,17 +2,18 @@ version: '2'
 
 services:
   ecstore:
-    image: 'ecstore/docker-ecstore:php56-swooleloader-2.0.2'
+    image: 'ecstore/docker-ecstore:php56-zend'
     ports:
-      - 8001:80
+      - 8002:80
     volumes:
       - .:/data/httpd
     links:
       - mysql
-      #- ftp
+      # - ftp
       # - redis
     environment:
-      - WEBROOT=/data/httpd
+      - WEBROOT=/data/httpd/
+      - LICENSE_PATH=/data/httpd/config/
     networks:
       - ecstore
 
@@ -30,7 +31,7 @@ services:
     image: mysql:5.6
     hostname: mysql
     ports:
-      - "8306:3306"
+      - "8406:3306"
     volumes:
       - ./storage/mysql:/var/lib/mysql
     environment:
@@ -41,7 +42,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
-      - "8004:80"
+      - "8005:80"
     links:
       - mysql
     environment:
