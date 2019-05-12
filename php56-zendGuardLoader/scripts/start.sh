@@ -24,7 +24,7 @@ fi
 
 # Set custom license_path
 if [ ! -z "$LICENSE_PATH" ]; then
- sed -i "s#zend_loader.license_path=/data/httpd/public/config/#zend_loader.license_path=${WEBROOT}#g" /etc/php.d/Zend.ini
+ sed -i "s#zend_loader.license_path=/data/httpd/public/config/#zend_loader.license_path=${LICENSE_PATH}#g" /etc/php.d/Zend.ini
 else
  license_path=/data/httpd/public/config/
 fi
